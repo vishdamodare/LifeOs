@@ -21,6 +21,31 @@ export const friendService = {
     
     const friendship = friendRepository.addFriendship(userId, friend.id);
     return apiClient.post(`/friends`, { userId, friendId: friend.id }, friendship);
+  },
+  
+  registerAndAddFriend: async (
+    userId: string,
+    name: string,
+    phone: string,
+    upiId: string
+  ): Promise<Friendship> => {
+    let friend = authRepository.findUserByPhone(phone);
+    if (!friend) {
+      const newMockUser: User = {
+        id: Math.random().toString(36).substring(2, 9),
+        name,
+        phone,
+        upi_id: upiId,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        last_login_at: new Date().toISOString()
+      };
+      authRepository.saveUser(newMockUser);
+      friend = newMockUser;
+    }
+    
+    const friendship = friendRepository.addFriendship(userId, friend.id);
+    return apiClient.post(`/friends`, { userId, friendId: friend.id }, friendship);
   }
 };
 

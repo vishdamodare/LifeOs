@@ -8,6 +8,7 @@ interface FriendState {
   error: string | null;
   fetchFriends: (userId: string) => Promise<void>;
   addFriend: (userId: string, phone: string) => Promise<boolean>;
+  registerAndAddFriend: (userId: string, name: string, phone: string, upiId: string) => Promise<boolean>;
 }
 
 export const useFriendStore = create<FriendState>((set) => ({
@@ -35,6 +36,20 @@ export const useFriendStore = create<FriendState>((set) => ({
       return true;
     } catch (err: any) {
       set({ error: err.message || 'Failed to add friend', isLoading: false });
+      return false;
+    }
+  },
+  
+  registerAndAddFriend: async (userId, name, phone, upiId) => {
+    set({ isLoading: true, error: null });
+    try {
+      await friendService.registerAndAddFriend(userId, name, phone, upiId);
+      // Refresh friends list
+      const friends = await friendService.getFriends(userId);
+      set({ friends, isLoading: false });
+      return true;
+    } catch (err: any) {
+      set({ error: err.message || 'Failed to register and add friend', isLoading: false });
       return false;
     }
   }
