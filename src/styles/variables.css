@@ -1,0 +1,58 @@
+:root {
+  --font-sans: -apple-system, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Primary Theme Colors */
+  --primary: #4C52D9;
+  --primary-hover: #3A40B5;
+  --primary-light: #F0F2FF;
+  --primary-border: #E0E2FF;
+  --bg-app: #F5F7FF;
+  --bg-card: #ffffff;
+  --bg-field: #F8F9FF;
+  --border-card: #ECEEFF;
+  --border-app: #E8EAFF;
+  
+  /* State Colors */
+  --color-text-main: #1A1D3B;
+  --color-text-sub: #9095B8;
+  --color-text-muted: #6B7280;
+  
+  /* Alert / Balance States */
+  --bal-receive-bg: #EDFAF4;
+  --bal-receive-border: #C6F0DC;
+  --bal-receive-text: #0E9E5F;
+  --bal-receive-sub: #3BAF7A;
+  
+  --bal-owe-bg: #FFF2F2;
+  --bal-owe-border: #FFD9D9;
+  --bal-owe-text: #E03838;
+  --bal-owe-sub: #E87070;
+  
+  /* Status Pill Colors */
+  --pill-pending-bg: #FFF8E8;
+  --pill-pending-text: #C07A00;
+  --pill-pending-border: #FFE8A3;
+  
+  --pill-paid-bg: #EDFAF4;
+  --pill-paid-text: #0E9E5F;
+  --pill-paid-border: #C6F0DC;
+  
+  --pill-overdue-bg: #FFF2F2;
+  --pill-overdue-text: #E03838;
+  --pill-overdue-border: #FFD9D9;
+  
+  --pill-verification-bg: #E8F4FF;
+  --pill-verification-text: #0066CC;
+  --pill-verification-border: #BCE2FF;
+  
+  /* Overlay */
+  --overlay-bg: rgba(26, 29, 59, 0.35);
+  --sheet-handle: #E0E2F0;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-xxl: 20px;
+}
